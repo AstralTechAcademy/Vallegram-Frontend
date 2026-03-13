@@ -48,7 +48,9 @@ class Post extends StatefulWidget {
 class _PostState extends State<Post> {  
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Padding(
+      padding: EdgeInsetsGeometry.only(left: 10, right: 10),
+      child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -127,6 +129,7 @@ class _PostState extends State<Post> {
             
 
       ],
+    )
     );
   }
 
