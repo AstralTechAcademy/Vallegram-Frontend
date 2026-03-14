@@ -49,7 +49,7 @@ class _PostState extends State<Post> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.only(left: 10, right: 10),
+      padding: EdgeInsetsGeometry.only(top: 20),
       child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -62,7 +62,7 @@ class _PostState extends State<Post> {
                 //Text('Post ID: ${widget.id}'),
                 Container(
                     padding: EdgeInsets.all(5), // Border width
-                    decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
+                    // decoration: BoxDecoration(color: Colors.green, shape: BoxShape.circle),
                     child: ClipOval(
                         child: SizedBox.fromSize(
                             size: Size.fromRadius(20), // Image radius
