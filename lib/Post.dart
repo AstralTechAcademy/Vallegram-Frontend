@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:app/Common.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class Post extends StatefulWidget {
 
   final String id;
-  final String userId;
+  final String postUserId;
   final String picUrl;
   final String postUsername;
   final String profilePicture;
   final List<String>? userLikes;
   bool like = false;
 
-  Post({super.key, required this.id, required this.userId,  required this.picUrl, required this.userLikes,
+  Post({super.key, required this.id, required this.postUserId,  required this.picUrl, required this.userLikes,
         required this.postUsername,required this.profilePicture});
 
   Post.fromJson(Map<String, dynamic> json, {super.key})
     : id = json['post_id'].toString(),
-      userId = json['post_details']['user_id'].toString(),
+      postUserId = json['post_details']['user_id'].toString(),
       picUrl = json['post_details']['url'].toString(),
       userLikes = json['post_details']['likes'],
       postUsername = json['user_details']['username'],
@@ -25,7 +26,7 @@ class Post extends StatefulWidget {
 
   Future<String> insertLike() async
   {
-    var url = Uri.http('192.168.1.132:3000', '/like', {"userId":userId,"postId":id});
+    var url = Uri.http('192.168.1.132:3000', '/like', {"userId":currentUserId,"postId":id});
     var response = await http.post(url);
 
     if (response.statusCode == 200) {

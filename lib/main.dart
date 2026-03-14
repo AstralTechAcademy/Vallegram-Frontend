@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:app/Common.dart';
 import 'package:app/Post.dart';
 import 'package:app/Story.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ void main() {
 
 Future<List<Post>> getPosts() async
 {
-  var url = Uri.http('192.168.1.132:3000', '/feed', {"userId":"69a09fba38da0ec8f9ef5f7b"});
+  var url = Uri.http('192.168.1.132:3000', '/feed', {"userId":currentUserId});
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
@@ -26,7 +27,7 @@ Future<List<Post>> getPosts() async
 
 Future<List<Story>> getStories() async
 {
-  var url = Uri.http('192.168.1.132:3000', '/stories', {"userId":"69a09fdf38da0ec8f9ef5f7c"});
+  var url = Uri.http('192.168.1.132:3000', '/stories', {"userId":currentUserId});
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
