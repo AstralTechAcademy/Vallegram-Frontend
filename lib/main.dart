@@ -10,18 +10,7 @@ void main() {
 
 Future<List<Post>> getPosts() async
 {
-  var url = Uri.http('$addr:3000', '/feed', {"userId":currentUserId});
-  var response = await http.get(url);
-
-  if (response.statusCode == 200) {
-    final List<dynamic> data = jsonDecode(response.body);
-
-    return data
-        .map((json) => Post.fromJson(json as Map<String, dynamic>))
-        .toList();
-  } else {
-    throw Exception('Error al cargar los posts');
-  }
+  //TODO
 }
 
 Future<List<Story>> getStories() async

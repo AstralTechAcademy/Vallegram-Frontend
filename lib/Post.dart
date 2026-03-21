@@ -25,19 +25,7 @@ class Post extends StatefulWidget {
 
   Future<String> insertLike() async
   {
-    var url = Uri.http('$addr:3000', '/like', {"userId":currentUserId,"postId":id});
-    var response = await http.post(url);
-
-    if (response.statusCode == 200) {
-      final dynamic data = jsonDecode(response.body);
-      return response.body;
-    } else {
-      if (response.body.contains("post_id_1_user_id_1"))
-      {
-        print("Like already inserted");
-      }
-      return "";
-    }
+    //TODO
   }
 
   @override
