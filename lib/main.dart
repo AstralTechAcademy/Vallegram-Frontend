@@ -11,6 +11,7 @@ void main() {
 Future<List<Post>> getPosts() async
 {
   //TODO
+  return [];
 }
 
 Future<List<Story>> getStories() async

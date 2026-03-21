@@ -26,6 +26,7 @@ class Post extends StatefulWidget {
   Future<String> insertLike() async
   {
     //TODO
+    return "";
   }
 
   @override
