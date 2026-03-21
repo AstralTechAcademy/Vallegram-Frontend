@@ -4,14 +4,13 @@ import 'package:app/Post.dart';
 import 'package:app/Story.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 void main() {
   runApp(const MainApp());
 }
 
 Future<List<Post>> getPosts() async
 {
-  var url = Uri.http('192.168.1.132:3000', '/feed', {"userId":currentUserId});
+  var url = Uri.http('$addr:3000', '/feed', {"userId":currentUserId});
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
@@ -27,7 +26,7 @@ Future<List<Post>> getPosts() async
 
 Future<List<Story>> getStories() async
 {
-  var url = Uri.http('192.168.1.132:3000', '/stories', {"userId":currentUserId});
+  var url = Uri.http('$addr:3000', '/stories', {"userId":currentUserId});
   var response = await http.get(url);
 
   if (response.statusCode == 200) {

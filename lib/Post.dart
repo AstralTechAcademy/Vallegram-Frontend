@@ -26,7 +26,7 @@ class Post extends StatefulWidget {
 
   Future<String> insertLike() async
   {
-    var url = Uri.http('192.168.1.132:3000', '/like', {"userId":currentUserId,"postId":id});
+    var url = Uri.http('$addr:3000', '/like', {"userId":currentUserId,"postId":id});
     var response = await http.post(url);
 
     if (response.statusCode == 200) {
