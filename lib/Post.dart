@@ -10,19 +10,18 @@ class Post extends StatefulWidget {
   final String picUrl;
   final String postUsername;
   final String profilePicture;
-  final List<String>? userLikes;
+  final List<dynamic>? userLikes;
   bool like = false;
-
-  Post({super.key, required this.id, required this.postUserId,  required this.picUrl, required this.userLikes,
-        required this.postUsername,required this.profilePicture});
 
   Post.fromJson(Map<String, dynamic> json, {super.key})
     : id = json['post_id'].toString(),
       postUserId = json['post_details']['user_id'].toString(),
       picUrl = json['post_details']['url'].toString(),
-      userLikes = json['post_details']['likes'],
+      userLikes = json['likes_details'],
       postUsername = json['user_details']['username'],
-      profilePicture = json['user_details']['profile_picture'];
+      profilePicture = json['user_details']['profile_picture'],
+      like = (json['likes_details'] as List).any(
+          (l) => l['user_id'].toString() == currentUserId);
 
   Future<String> insertLike() async
   {
